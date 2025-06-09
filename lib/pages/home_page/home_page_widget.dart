@@ -2,8 +2,12 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
@@ -302,10 +306,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       decoration: BoxDecoration(),
                                       child: Builder(
                                         builder: (context) {
-                                          final serAll = getJsonField(
-                                            FFAppState().splash,
-                                            r'''$.ser_all''',
-                                          ).toList();
+                                          final serAll = FFAppState()
+                                              .splash
+                                              .where((e) => getJsonField(
+                                                    e,
+                                                    r'''$.ser_all''',
+                                                  ))
+                                              .toList();
 
                                           return ListView.builder(
                                             padding: EdgeInsets.zero,
@@ -330,7 +337,136 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         BorderRadius.circular(
                                                             20.0),
                                                     child: Image.network(
-                                                      'https://picsum.photos/seed/33/600',
+                                                      getJsonField(
+                                                        serAllItem,
+                                                        r'''$.portrait''',
+                                                      ).toString(),
+                                                      width: 200.0,
+                                                      height: 200.0,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: double.infinity,
+                                height: 309.6,
+                                decoration: BoxDecoration(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 15.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 20.0, 0.0),
+                                            child: Text(
+                                              'مسلسلات عربية',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Almarai',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    fontSize: 25.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(1.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 0.0, 20.0, 0.0),
+                                              child: FlutterFlowIconButton(
+                                                borderRadius: 10.0,
+                                                buttonSize: 40.0,
+                                                fillColor: Color(0x5214181B),
+                                                hoverColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .hover,
+                                                hoverIconColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .text,
+                                                icon: Icon(
+                                                  Icons
+                                                      .keyboard_double_arrow_left,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .hover,
+                                                  size: 24.0,
+                                                ),
+                                                onPressed: () {
+                                                  print(
+                                                      'IconButton pressed ...');
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      height: 251.71,
+                                      decoration: BoxDecoration(),
+                                      child: Builder(
+                                        builder: (context) {
+                                          final serAll = FFAppState()
+                                              .splash
+                                              .where((e) => getJsonField(
+                                                    e,
+                                                    r'''$.ser_all''',
+                                                  ))
+                                              .toList();
+
+                                          return ListView.builder(
+                                            padding: EdgeInsets.zero,
+                                            primary: false,
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.horizontal,
+                                            itemCount: serAll.length,
+                                            itemBuilder:
+                                                (context, serAllIndex) {
+                                              final serAllItem =
+                                                  serAll[serAllIndex];
+                                              return Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 30.0, 0.0),
+                                                child: Container(
+                                                  width: 150.0,
+                                                  height: 100.0,
+                                                  decoration: BoxDecoration(),
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20.0),
+                                                    child: Image.network(
+                                                      getJsonField(
+                                                        serAllItem,
+                                                        r'''$.portrait''',
+                                                      ).toString(),
                                                       width: 200.0,
                                                       height: 200.0,
                                                       fit: BoxFit.cover,
