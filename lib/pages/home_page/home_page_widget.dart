@@ -35,8 +35,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
       if ((_model.apiResultfgs?.succeeded ?? true)) {
         safeSetState(() {});
-      } else {
-        context.pushNamed(HomePageWidget.routeName);
       }
 
       context.pushNamed(HomePageWidget.routeName);
